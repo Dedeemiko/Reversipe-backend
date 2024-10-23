@@ -8,5 +8,6 @@ const router = express.Router();
 
 router.get("/", recipeController.index)
 router.get("/search", recipeController.searchByName);
+router.get("/searchByIngredients", recipeController.searchByIngredients);
 
 export default router;
