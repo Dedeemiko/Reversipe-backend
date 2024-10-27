@@ -31,6 +31,7 @@ const searchByIngredients = async (req, res) => {
 
     const ingredientsArray = ingredients.split(",").map(item => item.trim());
 
+
     try {
         const allIngredientsMatch = await knex("recipes")
             .where(function() {
@@ -47,7 +48,7 @@ const searchByIngredients = async (req, res) => {
                     this.orWhere("ingredients", "like", `%${ingredient}%`);
                 });
             })
-            .andWhereNot("id", allIngredientsIds);
+            .whereNotIn("id", allIngredientsIds);
 
         const results = [...allIngredientsMatch, ...anyIngredientMatch];       
         res.status(200).json(results);
