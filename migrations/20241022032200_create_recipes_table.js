@@ -4,13 +4,13 @@
  */
 export function up(knex) {
     return knex.schema.createTable('recipes', (table) => {
-        table.increments('id').primary(); // Auto-incrementing ID
-        table.string('title', 255).notNullable(); // Title of the recipe
-        table.text('ingredients'); // Ingredients list
-        table.text('instructions'); // Cooking instructions
-        table.string('picture_link', 255); // Link to the picture
-        table.string('place_of_origin', 100); // Place of origin
-        table.integer('estimated_time'); // Estimated cooking time in minutes
+        table.increments('id').primary(); 
+        table.string('title', 255).notNullable(); 
+        table.text('ingredients'); 
+        table.text('instructions'); 
+        table.string('picture_link', 255); 
+        table.string('place_of_origin', 100); 
+        table.integer('estimated_time'); 
       });
 };
 
